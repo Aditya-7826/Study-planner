@@ -50,7 +50,7 @@ Everything is saved automatically in your browser's `localStorage`. Nothing is u
 No build step needed:
 
 ```bash
-git clone https://github.com/Aditya-7826/study-planner.git
-cd study-planner
+git clone https://github.com/Aditya-7826/Study-planner.git
+cd Study-planner
 # then open index.html in your browser
 ```
