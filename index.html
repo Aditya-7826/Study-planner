@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Night Sky Study Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<main class="container">
+  <header>
+    <h1>🌙 Study Planner</h1>
+    <div class="date-nav">
+      <button id="prevDay" aria-label="Previous day">‹</button>
+      <input type="date" id="datePicker">
+      <button id="nextDay" aria-label="Next day">›</button>
+    </div>
+    <button id="todayBtn" class="link-btn">Jump to today</button>
+  </header>
+
+  <section class="card">
+    <form id="goalForm">
+      <input type="text" id="goalInput" placeholder="Add a study goal for this day…" autocomplete="off" required>
+      <input type="number" id="minutesInput" placeholder="mins" min="0" step="5" title="Planned minutes (optional)">
+      <button type="submit">Add</button>
+    </form>
+
+    <div class="progress">
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <span id="progressText">0 / 0 done</span>
+    </div>
+
+    <ul id="goalList"></ul>
+    <p id="emptyMsg" class="muted">No goals yet. The sky is clear — add your first one above.</p>
+  </section>
+
+  <section class="card">
+    <h2>Notes for the day</h2>
+    <textarea id="notes" placeholder="What did you learn? What was hard?"></textarea>
+  </section>
+
+  <section class="card">
+    <h2>Last 7 days</h2>
+    <div id="history" class="history"></div>
+    <p class="muted small">Streak: <strong id="streak">0</strong> day(s) with every goal completed</p>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

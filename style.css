@@ -1,0 +1,157 @@
+:root {
+  --bg-deep: #02040f;
+  --bg-mid: #0a1433;
+  --card: rgba(12, 22, 54, 0.72);
+  --border: rgba(110, 160, 255, 0.22);
+  --blue: #4d8dff;
+  --blue-soft: #8fb6ff;
+  --text: #e4ecff;
+  --muted: #7d8db3;
+  --danger: #ff6b8a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: radial-gradient(ellipse at top, var(--bg-mid) 0%, var(--bg-deep) 70%);
+  background-attachment: fixed;
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+
+header { text-align: center; margin-bottom: 24px; }
+
+h1 {
+  margin: 0 0 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 18px rgba(77, 141, 255, 0.6);
+}
+
+h2 { margin: 0 0 12px; font-size: 1rem; color: var(--blue-soft); font-weight: 600; }
+
+.date-nav { display: flex; justify-content: center; gap: 8px; align-items: center; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 18px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+input, textarea, button { font: inherit; color: var(--text); }
+
+input[type="text"], input[type="number"], input[type="date"], textarea {
+  background: rgba(2, 6, 20, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  outline: none;
+  color-scheme: dark;
+}
+
+input:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(77, 141, 255, 0.2); }
+
+button {
+  background: linear-gradient(135deg, #2d5fd6, var(--blue));
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+button:hover { filter: brightness(1.15); }
+
+.date-nav button { padding: 8px 14px; font-size: 1.1rem; }
+
+.link-btn {
+  background: none;
+  color: var(--blue-soft);
+  font-weight: 400;
+  margin-top: 8px;
+  padding: 4px;
+  font-size: 0.85rem;
+}
+.link-btn:hover { text-decoration: underline; }
+
+#goalForm { display: flex; gap: 8px; flex-wrap: wrap; }
+#goalInput { flex: 1 1 220px; min-width: 0; }
+#minutesInput { width: 80px; }
+
+.progress { display: flex; align-items: center; gap: 12px; margin: 18px 0 8px; }
+.progress-bar { flex: 1; height: 8px; background: rgba(255, 255, 255, 0.08); border-radius: 99px; overflow: hidden; }
+#progressFill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #2d5fd6, #9cc2ff);
+  box-shadow: 0 0 10px var(--blue);
+  transition: width 0.3s;
+}
+#progressText { font-size: 0.85rem; color: var(--muted); white-space: nowrap; }
+
+#goalList { list-style: none; padding: 0; margin: 8px 0 0; }
+
+#goalList li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  border-bottom: 1px solid rgba(110, 160, 255, 0.1);
+}
+#goalList li:last-child { border-bottom: none; }
+
+#goalList input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--blue); cursor: pointer; flex-shrink: 0; }
+
+.goal-text { flex: 1; word-break: break-word; }
+.done .goal-text { text-decoration: line-through; color: var(--muted); }
+
+.mins { font-size: 0.8rem; color: var(--blue-soft); white-space: nowrap; }
+
+.delete {
+  background: none;
+  color: var(--muted);
+  padding: 2px 8px;
+  font-size: 1.1rem;
+}
+.delete:hover { color: var(--danger); filter: none; }
+
+textarea { width: 100%; min-height: 90px; resize: vertical; }
+
+.history { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
+.day {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 2px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  background: rgba(2, 6, 20, 0.5);
+}
+.day:hover { border-color: var(--blue); }
+.day .dot { width: 10px; height: 10px; margin: 6px auto 4px; border-radius: 50%; background: rgba(255,255,255,0.1); }
+.day.partial .dot { background: #2d5fd6; }
+.day.full .dot { background: #bcd6ff; box-shadow: 0 0 8px #8fb6ff; }
+.day.selected { border-color: var(--blue-soft); }
+
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; margin: 12px 0 0; }
+#emptyMsg { text-align: center; margin: 12px 0 0; }
