@@ -2,6 +2,10 @@
 
 A simple, personal study planner for tracking daily study goals — wrapped in a calm blue-and-black night sky theme with twinkling stars.
 
+### 🔗 Use it now: **[aditya-7826.github.io/Study-planner](https://aditya-7826.github.io/Study-planner/)**
+
+No sign-up needed. Your goals are saved privately in your own browser.
+
 ## What it is for
 
 This is a lightweight tool for planning and tracking what you want to study each day. Every day you write down your goals by hand, tick them off as you finish them, and see at a glance how consistent you've been over the past week.
@@ -47,10 +51,19 @@ Everything is saved automatically in your browser's `localStorage`. Nothing is u
 
 ## Running locally
 
-No build step needed:
+No build step needed. Clone the repo:
 
 ```bash
 git clone https://github.com/Aditya-7826/Study-planner.git
 cd Study-planner
-# then open index.html in your browser
 ```
+
+Then either double-click `index.html`, or serve it on localhost:
+
+```bash
+python -m http.server 8000
+```
+
+and open **http://localhost:8000** in your browser.
+
+> Note: the localhost link only works on the computer running the command. To share the planner, use the [live link](https://aditya-7826.github.io/Study-planner/) above.
